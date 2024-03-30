@@ -116,8 +116,8 @@ function App() {
           <p className="text-md">
             <pre>
               background:{color} <br />
-              backdropFilter:blur({blur / 10}px),<br />
-              borderRadius: {corner}px <br />
+              backdrop-filter:blur({blur / 10}px),<br />
+              border-radius: {corner}px <br />
               border: 1px solid rgba(255, 255, 255, {outline/100})
               </pre>
           </p>
