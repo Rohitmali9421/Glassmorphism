@@ -7,8 +7,6 @@ function App() {
   const [outline, setOutline] = useState("55");
 
   const divStyle = {
-    height: "400px",
-    width: "400px",
     background:` ${color}`,
     backdropFilter: `blur(${blur / 10}px)`,
     borderRadius: `${corner}px`,
@@ -21,15 +19,12 @@ function App() {
   }, [opacity]);
 
   function hexToRgba(hex, alpha) {
-    // Remove '#' if present
     hex = hex.replace("#", "");
 
-    // Parse hex values to get red, green, and blue
     var r = parseInt(hex.substring(0, 2), 16);
     var g = parseInt(hex.substring(2, 4), 16);
     var b = parseInt(hex.substring(4, 6), 16);
 
-    // Validate alpha
     if (typeof alpha === "undefined") {
       alpha = 1;
     } else {
@@ -39,7 +34,6 @@ function App() {
       }
     }
 
-    // Construct RGBA string
     var rgba = `rgba(${r},${g},${b},${opacity})`;
 
     return rgba;
@@ -65,10 +59,15 @@ function App() {
     setOpacity(e.target.value / 100);
   };
 
+  function copyToClipboard() {
+    let y=document.getElementById("t").innerText;
+    navigator.clipboard.writeText(y) 
+  }
+  
   return (
     <>
       <div className="w-full py-5 gap-5 h-screen flex flex-col-reverse md:flex-row justify-evenly md:bg-[url(./bg.jpg)] items-center bg-cover bg-[url(./bg3.jpg)] bg-center ">
-        <div className="w-98 py-4 px-6 bg-white bg-opacity-50  rounded-xl">
+        <div className="w-80 lg:w-96 py-4 px-6 bg-white bg-opacity-50  rounded-xl ">
           <h1>TRANSPARENCY</h1>
           <input
             type="range"
@@ -113,19 +112,24 @@ function App() {
             className="w-full h-[6px] rounded-md color"
           />
           <h1>CSS</h1>
-          <p className="text-md">
-            <pre>
+        
+            <pre id="t" className="text-[12px] lg:text-[15px] font-semibold text-gray-800 mb-3">
               background:{color} <br />
               backdrop-filter:blur({blur / 10}px),<br />
               border-radius: {corner}px <br />
               border: 1px solid rgba(255, 255, 255, {outline/100})
               </pre>
-          </p>
-          <button className="w-full bg-pink-500 text-white rounded-md py-2  font-bold">Copy CSS</button>
+          <button onClick={copyToClipboard} className="w-full hover:bg-pink-600 bg-pink-500 text-white rounded-md py-2  font-bold">COPY CSS</button>
+        </div>
+  
+         
+          
+        <div style={divStyle} className="overflow-hidden z-20 w-80 lg:w-96 h-60 ">
+        
+        </div>
+        
         </div>
 
-        <div style={divStyle} className="overflow-hidden "></div>
-      </div>
     </>
   );
 }
