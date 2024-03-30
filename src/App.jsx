@@ -66,7 +66,7 @@ function App() {
   
   return (
     <>
-      <div className="w-full py-5 gap-5 h-screen flex flex-col-reverse md:flex-row justify-evenly md:bg-[url(./bg.jpg)] items-center bg-cover bg-[url(./bg3.jpg)] bg-center ">
+      <div className="w-full py-5 gap-5 h-screen flex flex-col-reverse md:flex-row justify-evenly md:bg-[url(https://img.freepik.com/free-photo/gray-sofa-brown-living-room-with-copy-space_43614-954.jpg?t=st=1711820664~exp=1711824264~hmac=fd451f409e816f37d3a1529d5fd1533d0e8758b95a1988cb2eb5a88d11ad57ce&w=900)] items-center bg-cover bg-[url(https://img.freepik.com/free-photo/interior-home-decor-with-photo-frames_23-2149514008.jpg?t=st=1711820783~exp=1711824383~hmac=a12539fbb5526f26bbfd907ca2a8f1f81df6f45d15827c9e836819040ea95dc3&w=360)] bg-center ">
         <div className="w-80 lg:w-96 py-4 px-6 bg-white bg-opacity-50  rounded-xl ">
           <h1>TRANSPARENCY</h1>
           <input
